@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { safeZodResolver } from "@/lib/zod";
 import { useState } from "react";
 import { requestPasswordReset } from "@/lib/auth-client";
 import {
@@ -38,7 +38,7 @@ export const ForgotPasswordForm = () => {
   const [success, setSuccess] = useState(false);
 
   const form = useForm<ForgotPasswordFormValues>({
-    resolver: zodResolver(forgotPasswordSchema),
+    resolver: safeZodResolver(forgotPasswordSchema),
     defaultValues: {
       email: "",
     },

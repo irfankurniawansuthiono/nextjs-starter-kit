@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { safeZodResolver } from "@/lib/zod";
 import {
   LoginFormValues,
   loginSchema,
@@ -72,7 +72,7 @@ export const AuthForm = ({ variant }: AuthFormProps) => {
   const [loading, setLoading] = useState(false);
 
   const form = useForm<LoginFormValues | RegisterFormValues>({
-    resolver: zodResolver(isLogin ? loginSchema : registerSchema),
+    resolver: safeZodResolver(isLogin ? loginSchema : registerSchema),
     defaultValues: {
       email: "",
       password: "",

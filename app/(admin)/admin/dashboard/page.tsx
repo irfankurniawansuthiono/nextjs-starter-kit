@@ -1,6 +1,9 @@
+
 import PageContainer from "@/components/custom/page-container";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import DemoByIpanks from "./demo";
+
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -15,7 +18,7 @@ export default function DashboardPage() {
       pageDescription="Dashboard"
       pageHeaderAction={<Button>Add</Button>}
     >
-      Dashboard
+      <DemoByIpanks />
     </PageContainer>
   );
 }

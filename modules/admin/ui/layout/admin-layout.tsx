@@ -14,7 +14,8 @@ export default async function AdminLayout({
   return (
     <SidebarProvider defaultOpen={defaultOpen}>
       <AppSidebar />
-      <SidebarInset>
+      {/* fixed overflow container (horizontal scroll) - more info https://github.com/shadcn-ui/ui/issues/5545#issuecomment-2867696778 */}
+      <SidebarInset className="min-w-0">
         <Header />
         {/* page main content */}
         {children}

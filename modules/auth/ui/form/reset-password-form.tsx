@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { safeZodResolver } from "@/lib/zod";
 import {
   ResetPasswordFormValues,
   resetPasswordSchema,
@@ -43,7 +43,7 @@ export const ResetPasswordForm = () => {
   const [success, setSuccess] = useState(false);
 
   const form = useForm<ResetPasswordFormValues>({
-    resolver: zodResolver(resetPasswordSchema),
+    resolver: safeZodResolver(resetPasswordSchema),
     defaultValues: {
       password: "",
       confirmPassword: "",
