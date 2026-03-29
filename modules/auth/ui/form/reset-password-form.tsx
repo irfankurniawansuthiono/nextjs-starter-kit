@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   ResetPasswordFormValues,
   resetPasswordSchema,
@@ -32,6 +31,7 @@ import Link from "next/link";
 import { Spinner } from "@/components/ui/spinner";
 import { appToast } from "@/components/custom/app-toast";
 import { CheckCircle2, AlertTriangle } from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const ResetPasswordForm = () => {
   const router = useRouter();

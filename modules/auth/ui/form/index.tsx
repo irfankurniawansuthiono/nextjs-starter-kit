@@ -1,7 +1,6 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   LoginFormValues,
   loginSchema,
@@ -33,6 +32,7 @@ import { PasswordInput } from "@/components/custom/password-input";
 import Link from "next/link";
 import { Spinner } from "@/components/ui/spinner";
 import { appToast } from "@/components/custom/app-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 type AuthFormProps = {
   variant: "login" | "register";
