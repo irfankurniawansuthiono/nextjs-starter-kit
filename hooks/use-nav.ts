@@ -8,27 +8,6 @@ export function useFilteredNavItems(items: NavItem[]) {
   const { data } = useSession();
   const userRole = data?.user?.role;
 
-  const hasAccess = (access?: NavItem["access"]) => {
-    if (!access) return true;
-
-    if (access.role) {
-      if (!userRole) return false;
-
-      if (Array.isArray(access.role)) {
-        return access.role.includes(userRole);
-      }
-
-      return access.role === userRole;
-    }
-
-    if (access.plan || access.feature) {
-      console.warn(`Plan/feature checks require server-side validation.`);
-      return true;
-    }
-
-    return true;
-  };
-
   const filteredItems = useMemo(() => {
     const hasAccess = (access?: NavItem["access"]) => {
       if (!access) return true;
